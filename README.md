@@ -31,7 +31,7 @@ Projekt obejmuje:
 ├── data/
 │   └── loan_approval_dataset.csv
 ├── Analiza.ipynb        # notebook z pełną analizą (EDA + model)
-├── index.html         # wersja HTML notebooka (do podglądu)
+├── index.html         # wersja HTML notebooka
 ├── model.py             # skrypt treningowy modelu
 └── README.md
 ```
