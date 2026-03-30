@@ -1,5 +1,8 @@
 # 🏦 Loan Approval Prediction – ML + EDA Project
 
+Pełna analiza dostępna tutaj:
+👉 **[Zobacz analizę (HTML)](https://ssowula.github.io/Bank-Loan-Approval-Predictor/)**
+
 ## 📌 Opis projektu
 
 Projekt przedstawia analizę danych oraz model uczenia maszynowego służący do przewidywania decyzji o przyznaniu kredytu (`Approved` / `Rejected`).
@@ -31,7 +34,7 @@ Projekt obejmuje:
 ├── data/
 │   └── loan_approval_dataset.csv
 ├── Analiza.ipynb        # notebook z pełną analizą (EDA + model)
-├── index.html         # wersja HTML notebooka (do podglądu)
+├── index.html         # wersja HTML notebooka
 ├── model.py             # skrypt treningowy modelu
 └── README.md
 ```
@@ -39,9 +42,6 @@ Projekt obejmuje:
 ---
 
 ## 📊 Eksploracyjna analiza danych (EDA)
-
-Pełna analiza dostępna tutaj:
-👉 **[Zobacz analizę (HTML)](analiza.html)**
 
 Najważniejsze wnioski:
 
