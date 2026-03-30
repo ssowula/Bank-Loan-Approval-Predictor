@@ -1,49 +1,151 @@
-# 🏦 Loan Approval Prediction - End-to-End ML Project
+# 🏦 Loan Approval Prediction – ML + EDA Project
 
-## 📌 Opis Projektu
-Projekt ten to kompletny rurociąg uczenia maszynowego (End-to-End Machine Learning Pipeline) służący do przewidywania decyzji o przyznaniu kredytu bankowego. Analizuje on profil klienta (m.in. historię kredytową, zarobki, wykształcenie, posiadany majątek) i na tej podstawie ocenia ryzyko, automatycznie klasyfikując wniosek jako `Approved` lub `Rejected`. 
+## 📌 Opis projektu
 
-Projekt obejmuje pełen cykl życia modelu: od Eksploracyjnej Analizy Danych (EDA) i czyszczenia, przez trening algorytmu **Random Forest**, aż po wdrożenie (Deployment) w formie skonteneryzowanego API (Docker + FastAPI/Flask).
+Projekt przedstawia analizę danych oraz model uczenia maszynowego służący do przewidywania decyzji o przyznaniu kredytu (`Approved` / `Rejected`).
+
+Celem projektu jest zrozumienie, jakie czynniki mają największy wpływ na decyzję kredytową oraz zbudowanie modelu klasyfikacyjnego, który potrafi tę decyzję przewidywać.
+
+Projekt obejmuje:
+
+* eksploracyjną analizę danych (**EDA**)
+* przygotowanie i czyszczenie danych
+* budowę modelu **Random Forest**
+* ocenę jakości modelu
+* interpretację wyników
+
+---
 
 ## 🛠 Technologie
-* **Język:** Python
-* **Analiza i obróbka danych:** Pandas
-* **Wizualizacja:** Matplotlib, Seaborn
-* **Machine Learning:** Scikit-Learn (RandomForestClassifier)
-* **Deployment:** Docker, FastAPI/Flask
 
-## 📊 Dane i Przetwarzanie (Data Pre-processing)
-Zbiór danych składał się pierwotnie z 4269 kompletnych rekordów. W ramach przygotowania danych do modelu wykonano następujące kroki:
-1. **Walidacja anomalii:** Zidentyfikowano i usunięto wiersze zawierające błędne wpisy systemowe (np. ujemna wartość majątku mieszkaniowego jako placeholder).
-2. **Skalowanie walut:** Ze względu na czytelność biznesową dla międzynarodowego odbiorcy, wartości finansowe zostały przeliczone z rupii indyjskiej na dolary amerykańskie (USD) i zaokrąglone do dwóch miejsc po przecinku.
-3. **Podział danych:** Zastosowano podział na zbiór treningowy i testowy w proporcji 80/20 (`random_state=42`), z wyodrębnieniem kolumny `loan_status` jako zmiennej objaśnianej.
+* **Python**
+* **Pandas** – analiza danych
+* **Matplotlib / Seaborn** – wizualizacja
+* **Scikit-learn** – model ML
 
-## 📈 Eksploracyjna Analiza Danych (EDA) - Kluczowe wnioski
-* **Silna korelacja główna:** Historia kredytowa (`cibil_score`) wykazuje najsilniejszą dodatnią korelację (0.77) z ostateczną decyzją kredytową.
-* **Współliniowość (Multikolinearność):** Zaobserwowano ogromną korelację (rzędu >0.90) między atrybutami majątkowymi (zarobki, wartość dóbr luksusowych, kwota kredytu). Algorytm *Random Forest* został wybrany celowo, ponieważ jest w naturalny sposób odporny na to zjawisko statystyczne.
-* **Cechy demograficzne:** Samozatrudnienie czy poziom wykształcenia mają marginalny (bliski zeru) wpływ liniowy na decyzję banku.
+---
 
-## 🤖 Budowa Modelu i Skuteczność (Performance)
-Zastosowany model **Random Forest Classifier** osiągnął fenomenalne wyniki na zbiorze testowym:
-* **Dokładność (Accuracy):** ~98%
-* **Precyzja (Precision):** 99% dla przyznanych kredytów, 97% dla odrzuconych.
-* **Czułość (Recall):** 99% dla odrzucanych wniosków, co oznacza znakomite minimalizowanie ryzyka banku.
-* **F1-Score:** 0.98/0.99, co świadczy o idealnym zbalansowaniu modelu.
+## 📂 Struktura projektu
 
-### Ważność Cech (Feature Importance)
-Analiza sposobu podejmowania decyzji przez algorytm ostatecznie potwierdziła wnioski z EDA:
-1. **Historia kredytowa (`cibil_score`):** ~80% wpływu na decyzję.
-2. **Termin spłaty (`loan_term`):** ~10% wpływu.
-3. Reszta parametrów (w tym wykształcenie i wielkość rodziny) miała znaczenie marginalne.
+```
+├── data/
+│   └── loan_approval_dataset.csv
+├── Analiza.ipynb        # notebook z pełną analizą (EDA + model)
+├── analiza.html         # wersja HTML notebooka (do podglądu)
+├── model.py             # skrypt treningowy modelu
+└── README.md
+```
 
-## 🚀 Jak uruchomić projekt lokalnie?
+---
 
-Dzięki konteneryzacji projekt można uruchomić jedną komendą, bez konieczności ręcznego konfigurowania środowiska.
+## 📊 Eksploracyjna analiza danych (EDA)
 
-1. Sklonuj to repozytorium:
-   ```bash
-   git clone https://github.com/ssowula/Bank-Loan-Approval-Predictor.git
-Przejdź do folderu z projektem:
-Uruchom projekt za pomocą Dockera:
-API będzie dostępne pod adresem: http://localhost:8000 (lub innym zdefiniowanym porcie). Możesz wysyłać zapytania POST z danymi klienta w formacie JSON, aby w czasie rzeczywistym otrzymać decyzję kredytową.
-***
+Pełna analiza dostępna tutaj:
+👉 **[Zobacz analizę (HTML)](analiza.html)**
+
+Najważniejsze wnioski:
+
+* **cibil_score** (historia kredytowa) ma największy wpływ na decyzję (~0.77 korelacji)
+* bardzo silna współliniowość między cechami majątkowymi (>0.90)
+* cechy demograficzne (wykształcenie, samozatrudnienie) mają marginalny wpływ
+
+---
+
+## ⚙️ Przygotowanie danych
+
+* usunięcie błędnych wartości (ujemny majątek mieszkaniowy)
+* mapowanie zmiennych kategorycznych na wartości binarne
+* przeliczenie walut (INR → USD)
+* podział danych: **80% trening / 20% test**
+
+---
+
+## 🤖 Model
+
+Zastosowany model:
+
+* **Random Forest Classifier**
+
+Dlaczego:
+
+* dobrze radzi sobie ze współliniowością
+* nie wymaga skalowania danych
+* jest odporny na szum
+
+---
+
+## 📈 Wyniki
+
+* **Accuracy:** ~98%
+* **Precision:**
+
+  * Approved: 99%
+  * Rejected: 97%
+* **Recall:**
+
+  * Rejected: 99% (ważne biznesowo)
+* **F1-score:** ~0.98–0.99
+
+Model bardzo dobrze rozróżnia przypadki i minimalizuje ryzyko błędnego przyznania kredytu.
+
+---
+
+## 🔍 Najważniejsze cechy (Feature Importance)
+
+1. **cibil_score** – ~80% wpływu
+2. **loan_term** – ~10%
+3. reszta cech – marginalna
+
+---
+
+## ▶️ Jak uruchomić projekt
+
+### 1. Klonowanie repozytorium
+
+```bash
+git clone https://github.com/ssowula/Bank-Loan-Approval-Predictor.git
+cd Bank-Loan-Approval-Predictor
+```
+
+### 2. Instalacja zależności
+
+```bash
+pip install pandas scikit-learn matplotlib seaborn
+```
+
+### 3. Uruchomienie modelu
+
+```bash
+python model.py
+```
+
+### 4. Otworzenie analizy
+
+Otwórz plik:
+
+```
+analiza.html
+```
+
+---
+
+## 💡 Wnioski biznesowe
+
+* historia kredytowa jest kluczowym czynnikiem decyzji
+* majątek i dochody są mniej istotne niż można się spodziewać
+* model może skutecznie wspierać decyzje kredytowe banku
+
+---
+
+## 📌 Możliwe rozwinięcia
+
+* walidacja krzyżowa (cross-validation)
+* tuning hiperparametrów
+* porównanie z innymi modelami (XGBoost, Logistic Regression)
+* prosty dashboard (np. Streamlit)
+
+---
+
+## 👤 Autor
+
+Projekt wykonany w celach edukacyjnych / portfolio.

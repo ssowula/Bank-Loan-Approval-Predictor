@@ -2,7 +2,6 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
-import joblib
 
 df = pd.read_csv("data/loan_approval_dataset.csv")
 df.columns = df.columns.str.strip()
@@ -52,5 +51,3 @@ y_pred = rf_model.predict(X_test)
 
 print("Dokładność (Accuracy):", accuracy_score(y_test, y_pred))
 print("\nRaport klasyfikacji:\n", classification_report(y_test, y_pred))
-
-joblib.dump(rf_model, 'loan_approval_model.pkl')
