@@ -31,7 +31,7 @@ Projekt obejmuje:
 ├── data/
 │   └── loan_approval_dataset.csv
 ├── Analiza.ipynb        # notebook z pełną analizą (EDA + model)
-├── analiza.html         # wersja HTML notebooka (do podglądu)
+├── index.html         # wersja HTML notebooka (do podglądu)
 ├── model.py             # skrypt treningowy modelu
 └── README.md
 ```
@@ -96,56 +96,8 @@ Model bardzo dobrze rozróżnia przypadki i minimalizuje ryzyko błędnego przyz
 2. **loan_term** – ~10%
 3. reszta cech – marginalna
 
----
-
-## ▶️ Jak uruchomić projekt
-
-### 1. Klonowanie repozytorium
-
-```bash
-git clone https://github.com/ssowula/Bank-Loan-Approval-Predictor.git
-cd Bank-Loan-Approval-Predictor
-```
-
-### 2. Instalacja zależności
-
-```bash
-pip install pandas scikit-learn matplotlib seaborn
-```
-
-### 3. Uruchomienie modelu
-
-```bash
-python model.py
-```
-
-### 4. Otworzenie analizy
-
-Otwórz plik:
-
-```
-analiza.html
-```
-
----
-
 ## 💡 Wnioski biznesowe
 
 * historia kredytowa jest kluczowym czynnikiem decyzji
 * majątek i dochody są mniej istotne niż można się spodziewać
 * model może skutecznie wspierać decyzje kredytowe banku
-
----
-
-## 📌 Możliwe rozwinięcia
-
-* walidacja krzyżowa (cross-validation)
-* tuning hiperparametrów
-* porównanie z innymi modelami (XGBoost, Logistic Regression)
-* prosty dashboard (np. Streamlit)
-
----
-
-## 👤 Autor
-
-Projekt wykonany w celach edukacyjnych / portfolio.
