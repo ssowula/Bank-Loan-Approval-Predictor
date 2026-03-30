@@ -5,12 +5,9 @@ Projekt ten to kompletny rurociąg uczenia maszynowego (End-to-End Machine Learn
 
 Projekt obejmuje pełen cykl życia modelu: od Eksploracyjnej Analizy Danych (EDA) i czyszczenia, przez trening algorytmu **Random Forest**, aż po wdrożenie (Deployment) w formie skonteneryzowanego API (Docker + FastAPI/Flask).
 
-## 🎯 Cel Biznesowy
-Zautomatyzowanie procesu decyzyjnego w banku przy jednoczesnym zachowaniu bardzo wysokiej precyzji, co pozwala na odciążenie analityków finansowych oraz minimalizację ryzyka (błędów I i II rodzaju).
-
 ## 🛠 Technologie
 * **Język:** Python
-* **Analiza i obróbka danych:** Pandas, NumPy
+* **Analiza i obróbka danych:** Pandas
 * **Wizualizacja:** Matplotlib, Seaborn
 * **Machine Learning:** Scikit-Learn (RandomForestClassifier)
 * **Deployment:** Docker, FastAPI/Flask
