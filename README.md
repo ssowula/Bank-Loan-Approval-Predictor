@@ -42,7 +42,7 @@ Dzięki konteneryzacji projekt można uruchomić jedną komendą, bez konieczno�
 
 1. Sklonuj to repozytorium:
    ```bash
-   git clone https://github.com/TwojLogin/loan-approval-prediction.git
+   git clone https://github.com/ssowula/Bank-Loan-Approval-Predictor.git
 Przejdź do folderu z projektem:
 Uruchom projekt za pomocą Dockera:
 API będzie dostępne pod adresem: http://localhost:8000 (lub innym zdefiniowanym porcie). Możesz wysyłać zapytania POST z danymi klienta w formacie JSON, aby w czasie rzeczywistym otrzymać decyzję kredytową.
