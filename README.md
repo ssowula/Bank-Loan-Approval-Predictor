@@ -1,7 +1,7 @@
+# 🏦 Loan Approval Prediction – ML + EDA Project
+
 Pełna analiza dostępna tutaj:
 👉 **[Zobacz analizę (HTML)](https://ssowula.github.io/Bank-Loan-Approval-Predictor/)**
-
-# 🏦 Loan Approval Prediction – ML + EDA Project
 
 ## 📌 Opis projektu
 
