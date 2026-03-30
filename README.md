@@ -1,3 +1,6 @@
+Pełna analiza dostępna tutaj:
+👉 **[Zobacz analizę (HTML)](https://ssowula.github.io/Bank-Loan-Approval-Predictor/)**
+
 # 🏦 Loan Approval Prediction – ML + EDA Project
 
 ## 📌 Opis projektu
@@ -39,9 +42,6 @@ Projekt obejmuje:
 ---
 
 ## 📊 Eksploracyjna analiza danych (EDA)
-
-Pełna analiza dostępna tutaj:
-👉 **[Zobacz analizę (HTML)](analiza.html)**
 
 Najważniejsze wnioski:
 
